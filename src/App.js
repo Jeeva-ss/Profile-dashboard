@@ -35,7 +35,7 @@ function App() {
   }, [counter])
 
   return (
-    <div className="App">
+    <div className="flex items-center justify-center min-h-screen relative">
       <Wave />
       <List userData={userData} loading={loading} error={error} />
     </div>
