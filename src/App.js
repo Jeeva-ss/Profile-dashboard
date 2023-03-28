@@ -12,7 +12,6 @@ function App() {
 
   let counter = 0
 
-
   // load data from api endpoint
   useEffect(() => {
     // fetch data function
@@ -29,7 +28,10 @@ function App() {
         setLoading(false)
       }
     }
-    fetchData()
+    // on load
+    setTimeout(() => {
+      fetchData()
+    }, 1000)
   }, [counter])
 
   return (
