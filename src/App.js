@@ -12,27 +12,25 @@ function App() {
 
   let counter = 0
 
-  // fetch data function
-  const fetchData = async () => {
-    try {
-      const response = await fetch('https://panorbit.in/api/users.json')
-      const data = await response.json()
-      console.log(data)
-      setUserData(data.users)
-      setLoading(false)
-    } catch (error) {
-      counter++;
-      counter < 5 ? fetchData() : setError(true)
-      setLoading(false)
-    }
-  }
 
   // load data from api endpoint
   useEffect(() => {
-    setTimeout(() => {
-      fetchData()
-    }, 1000)
-  }, [])
+    // fetch data function
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://panorbit.in/api/users.json')
+        const data = await response.json()
+        console.log(data)
+        setUserData(data.users)
+        setLoading(false)
+      } catch (error) {
+        counter++;
+        counter < 5 ? fetchData() : setError(true)
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [counter])
 
   return (
     <div className="App">
